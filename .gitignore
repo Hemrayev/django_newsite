@@ -1,0 +1,8 @@
+venv
+static
+mysite/django-cache
+mysite/media
+mysite/news/migrations
+mysite/db.sqlite3
+.idea
+.git

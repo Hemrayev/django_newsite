@@ -1,0 +1,25 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Habarnama bolegi</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active"><a class="nav-link" href="{% url 'home' %}">Bas sahypa </a></li>
+            {% if request.user.is_authenticated %}
+                <li class="nav-item active"><a class="nav-link" href="{% url 'add_news' %}">Habarnama gosmak</a></li>
+            {% endif %}
+            <li class="nav-item active"><a class="nav-link" href="{% url 'contact' %}">Habarlasmak ucin</a></li>
+        </ul>
+        <span class="navbar-text">
+            {% if request.user.is_authenticated %}
+                Hos gelipsin, {{ user.username }} | <a href="{% url 'logout' %}">Cykmak</a>
+            {% else %}
+                <a href="{% url 'register' %}">Bellige alynmak</a> | <a href="{% url 'login' %}">Iceri girmek</a>
+            {% endif %}
+        </span>
+    </div>
+</nav>
